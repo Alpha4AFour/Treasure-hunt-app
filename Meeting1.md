@@ -1,13 +1,15 @@
-## Meeting 1 02FEB2024
+# Meeting 1 02FEB2024
 
 
-# Participants
+## Participants
 
 Boban Solomou
-Andreas Lamprou 
+
+Andreas Lamprou
+ 
 Eirini Lazarou
 
-# Accomplishments
+## Accomplishments
 
 Created Github Repository
 

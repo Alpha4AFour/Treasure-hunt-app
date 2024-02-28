@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
-    <link href="style.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-    <h1>CO1111 Treasure hunt</h1>
-    <h2>Member List</h2>
-    <ul>
-        <li>Boban Solomou</li>
-        <li>Andreas Lamprou</li>
-        <li>Eirini Lazarou</li>
-        <li>Ivan Iambarshev</li>
-        <li>Timofei Svinarev</li>
-    </ul>
-    <h2>Project Aims</h2>
-    <ul>
-        <li>A working page</li>
-        <li>Dark mode</li>
-    </ul>
-    <button id="button">Button</button>
-    <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/Alpha4AFour?ref_src=twsrc%5Etfw">Tweets by Alpha4AFour</a>
+    <head id="app_header">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Landing Page </title>
+        <link href="style.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="nav_bar" class="nav_bar">
+            <nav>
+                <ul>
+                    <!-- list of links -->
+                    <li> <a href="index.html"> Home </a> </li>
+                    <li> <a href="Help.html"> Help </a> </li>
+                    <li> <a href=""> About </a> </li>
+                </ul>
+            </nav>
+        </div>
+
+        <h1 id="landing_header"> CO1111 Treasure hunt </h1>
+        <div id="info_container">
+            <ul>
+                <li id="member_list_header"> Member List </li>
+                <li>Boban Solomou</li>
+                <li>Andreas Lamprou</li>
+                <li>Eirini Lazarou</li>
+                <li>Ivan Iambarshev</li>
+                <li>Timofei Svinarev</li>
+            </ul>
+            <a href="app.html">
+                <button id="landing_button"> Begin </button>
+            </a>
+            <ul>
+                <li id="aims_header"> Project Aims</li>
+                <li> A working page</li>
+                <li> Dark mode </li>
+            </ul>
+        </div>
+
+        <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/Alpha4AFour?ref_src=twsrc%5Etfw">Tweets by Alpha4AFour</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</body>
+    </body>
 </html>

@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', function refresh () {
     document.getElementById('refresh').addEventListener('click', function refresh () {
         location.reload();
     });
+    document.getElementById('treasurehuntList').addEventListener('click', function (event) {
+        if (event.target.tagName === 'LI') {
+            const treasureName = event.target.innerText.split('\n')[0];
+            alert("Starting treasure hunt: " + treasureName);
+        }
+    });
 });
 
 function handleTime(unixTime){

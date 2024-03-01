@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function refresh () {
                 const currentTimestamp = new Date().getTime();
                 if(currentTimestamp<treasureHuntsArray[i].startsOn || currentTimestamp>treasureHuntsArray[i].endsOn){
                     listItem.style.pointerEvents = "none";
+                    listItem.className = "hidden";
                 }
                 listItem.innerHTML = treasureHuntsArray[i].name+"</br>"+"Starts in: "+start+"</br>"+"Ends in: "+end;
                 treasurehuntList.appendChild(listItem);

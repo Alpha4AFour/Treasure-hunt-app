@@ -159,6 +159,10 @@ p {
     filter: drop-shadow(0 2px 7px rgba(2, 4, 4, 2));
 }
 
+.hidden {
+    opacity: 50%;
+}
+
 /* HELP PAGE */
 
 #Help_container {

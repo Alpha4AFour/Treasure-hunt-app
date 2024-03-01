@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function refresh () {
                     listItem.className = "hidden";
                 }
                 listItem.innerHTML = treasureHuntsArray[i].name+"</br>"+"Starts in: "+start+"</br>"+"Ends in: "+end;
+                listItem.id=treasureHuntsArray[i].uuid;
                 treasurehuntList.appendChild(listItem);
             }
         } catch (error) {

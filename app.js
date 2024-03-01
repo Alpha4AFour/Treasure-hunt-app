@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', function refresh () {
             let treasureHuntsArray = jsonObject.treasureHunts;
             console.log(jsonObject);
             let treasurehuntList = document.getElementById("treasurehuntList");
-
             for (let i = 0; i < treasureHuntsArray.length; i++) {
                 let listItem = document.createElement('li');
                 let start = handleTime(treasureHuntsArray[i].startsOn);
                 let end = handleTime(treasureHuntsArray[i].endsOn);
+                const currentTimestamp = new Date().getTime();
+                if(currentTimestamp<treasureHuntsArray[i].startsOn || currentTimestamp>treasureHuntsArray[i].endsOn){
+                    listItem.style.pointerEvents = "none";
+                }
                 listItem.innerHTML = treasureHuntsArray[i].name+"</br>"+"Starts in: "+start+"</br>"+"Ends in: "+end;
                 treasurehuntList.appendChild(listItem);
             }

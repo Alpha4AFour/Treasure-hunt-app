@@ -160,7 +160,7 @@ p {
 }
 
 .hidden {
-    opacity: 50%;
+    opacity: 50%; /*test*/
 }
 
 /* HELP PAGE */

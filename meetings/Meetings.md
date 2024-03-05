@@ -19,3 +19,13 @@ Created Twitter account
 
 Created draft landing page
 
+# Meeting 2 02FEB2024
+
+
+## Participants
+
+Boban Solomou
+
+Andreas Lamprou
+ 
+Eirini Lazarou

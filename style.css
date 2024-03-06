@@ -151,7 +151,7 @@ p {
 #refresh {
     text-decoration: none;
     font-size: x-large;
-    transition: 0.5s ease-in;
+    transition: 0.6s ease-in;
 }
 
 #refresh:hover {
@@ -184,5 +184,13 @@ p {
     color: rgb(37,59,59);
 }
 
+/* LEADERBOARD PAGE */
+#leaderboardTitle {
+    color: darkslategray;
+}
 
+#test-results-table, th {
+    border: 1px solid;
+    color: darkslategray;
+}
 

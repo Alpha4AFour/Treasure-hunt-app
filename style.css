@@ -159,7 +159,7 @@ p {
     filter: drop-shadow(0 2px 7px rgba(2, 4, 4, 2));
 }
 
-.hidden {
+.inactive {
     opacity: 50%;
 }
 

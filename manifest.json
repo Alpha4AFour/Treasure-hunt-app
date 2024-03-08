@@ -1,0 +1,9 @@
+{
+  "name": "Treasure Hunt",
+  "short_name": "Treasure Hunt",
+  "lang": "en-US",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "darklategray",
+  "theme_color": "darklategray"
+}

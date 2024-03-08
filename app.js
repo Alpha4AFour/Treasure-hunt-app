@@ -13,9 +13,10 @@ document.addEventListener('DOMContentLoaded', function refresh () {
                 const currentTimestamp = new Date().getTime();
                 if(currentTimestamp<treasureHuntsArray[i].startsOn || currentTimestamp>treasureHuntsArray[i].endsOn){
                     listItem.style.pointerEvents = "none";
-                    listItem.className = "hidden";
+                    listItem.className = "inactive";
                 }
                 listItem.innerHTML = treasureHuntsArray[i].name+"</br>"+"Starts in: "+start+"</br>"+"Ends in: "+end;
+                listItem.id=treasureHuntsArray[i].uuid;
                 treasurehuntList.appendChild(listItem);
             }
         } catch (error) {
@@ -32,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function refresh () {
         if (event.target.tagName === 'LI') {
             const treasureName = event.target.innerText.split('\n')[0];
             alert("Starting treasure hunt: " + treasureName);
+            alert(event.target.id);
+            window.location.href="login.html?id="+event.target.id;
         }
     });
 });

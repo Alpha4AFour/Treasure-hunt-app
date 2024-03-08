@@ -78,6 +78,29 @@ p {
     margin-bottom: 3rem;
 }
 
+@media only screen and (max-width: 715px) {
+    #info_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: medium;
+        border: 0.1rem solid darkslategray;
+        border-radius: 20px;
+        margin: 0.2rem 0.2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,03);
+        flex-wrap: wrap;
+        flex: 1;
+    }
+
+    #member_list_header {
+        list-style-type: none;
+        font-size: large;
+        color: darkslategray;
+        margin-bottom: 1rem;
+    }
+
+}
+
 #landing_button {
     display: flex;
     justify-content: center;

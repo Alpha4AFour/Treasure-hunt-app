@@ -23,6 +23,7 @@ function answer() {
 
                 if (jsonObject.completed) {
                     alert("TODO - Move to the leaderboard...");
+
                     //TODO - Move to the leaderboard.
                     return;
                 }

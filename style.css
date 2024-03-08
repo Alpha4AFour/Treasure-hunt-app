@@ -3,12 +3,6 @@ body {
     font-family: 'Poppins',sans-serif;
 }
 
-input {
-    font-size: medium;
-    padding: 0.3rem;
-    box-sizing: border-box;
-
-}
 
 /* Nav_Bar */
 .nav_bar {
@@ -92,8 +86,7 @@ p {
         font-size: medium;
         border: 0.1rem solid darkslategray;
         border-radius: 20px;
-        margin-top: 0.2rem;
-        margin-bottom: 1rem;
+        margin: 0.2rem 0.2rem;
         box-shadow: 0 5px 15px rgba(0,0,0,03);
         flex-wrap: wrap;
         flex: 1;
@@ -214,16 +207,6 @@ p {
     color: rgb(37,59,59);
 }
 
-/* LOGIN PAGE */
-#login > * {
-    display: flex;
-    justify-content: flex-start;
-    font-size: x-large;
-    align-items: center;
-    margin-top: 3rem;
-    gap: 1rem;
-}
-
 /* LEADERBOARD PAGE */
 #leaderboardTitle {
     color: darkslategray;
@@ -233,5 +216,4 @@ p {
     border: 1px solid;
     color: darkslategray;
 }
-
 

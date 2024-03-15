@@ -15,9 +15,10 @@ async function skipQuestion() {
     const skipCount = 1;
     const url = `https://codecyprus.org/th/api/skip?session=${session}&count=${skipCount}`;
     const response = await fetch(url);
+    const jsonObject = await response.json();
 
-    if (response.ok) {
-        alert("Question skipped")
+    if (jsonObject.status === "OK") {
+        alert("Question skipped!")
         question();
     }
     else {
@@ -66,3 +67,4 @@ skipTask.addEventListener("click", function(event){
     event.preventDefault();
     skipQuestion();
 });
+

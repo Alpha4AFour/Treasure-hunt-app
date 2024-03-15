@@ -17,7 +17,7 @@ async function skipQuestion() {
     const response = await fetch(url);
 
     if (response.ok) {
-        alert("Question skipped!")
+        alert("Question skipped")
         question();
     }
     else {

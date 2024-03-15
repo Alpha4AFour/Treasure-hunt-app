@@ -278,6 +278,10 @@ p {
     padding: 8px 22px;
     transition: backround 1.5s ease-in, color 0.5s ease-in;
 }
+#score {
+    position:absolute;
+    bottom: 0px;
+}
 
 #skip:hover {
     color: black;

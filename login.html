@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title> Login </title>
         <link rel="stylesheet" href="style.css"/>
         <script src="login.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,14 +12,14 @@
         <header>
             <nav id="app_nav">
                 <img src="pirate_api.png" id="pirateIcon" alt="Pirate Icon"/>
-                <h1 id="codeCyprus">Code Cyprus</h1>
+                <h1 id="codeCyprus"> Code Cyprus </h1>
             </nav>
         </header>
         <div id="login">
             <form onsubmit="login()" method="post">
-                Name:<input type="text" id="name" name="name" required>
-                <div id="login_input_container">
-                    <input id="login_input_field" type="submit" value="Submit">
+                <span id="login_name"> Name: </span> <input type="text" id="name" name="name" required>
+                <div id="login_input_container"> <br> <br>
+                    <input id="login_submit_button" type="submit" value="Submit">
                 </div>
             </form>
         </div>

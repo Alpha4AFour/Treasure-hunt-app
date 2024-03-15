@@ -45,7 +45,7 @@ async function skipQuestion() {
     const response = await fetch(url);
     const jsonObject = await response.json();
 
-    if (jsonObject.status === "OK") {
+    if (jsonObject.status === "ok") {
         alert("Question skipped!")
         question();
     }

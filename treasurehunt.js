@@ -8,6 +8,34 @@ async function question(){
         .then(jsonObject =>{
             console.log(jsonObject);
             questionTextElement.innerHTML = jsonObject.questionText;
+            document.getElementById('idTextAnswer').style.display = "none";
+            document.getElementById('buttonSubmit').style.display = "none";
+            document.getElementById('buttonA').style.display = "none";
+            document.getElementById('buttonB').style.display = "none";
+            document.getElementById('buttonC').style.display = "none";
+            document.getElementById('buttonD').style.display = "none";
+            document.getElementById('buttonTrue').style.display = "none";
+            document.getElementById('buttonFalse').style.display = "none";
+            let typeOfQuestion = jsonObject.questionType;
+
+            if (typeOfQuestion === "BOOLEAN") {
+                document.getElementById('buttonTrue').style.display ="block";
+                document.getElementById('buttonFalse').style.display ="block";
+            }
+            if  (typeOfQuestion === "MCQ") {
+                document.getElementById('buttonA').style.display = "block";
+                document.getElementById('buttonB').style.display = "block";
+                document.getElementById('buttonC').style.display = "block";
+                document.getElementById('buttonD').style.display = "block";
+            }
+            if (typeOfQuestion === "TEXT") {
+                document.getElementById('idTextAnswer').style.display = "block";
+                document.getElementById('buttonSubmit').style.display = "block";
+            }
+            if (typeOfQuestion === "INTEGER") {
+                document.getElementById('idTextAnswer').style.display = "block";
+                document.getElementById('buttonSubmit').style.display = "block";
+            }
         });
 }
 

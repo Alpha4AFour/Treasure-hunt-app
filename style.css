@@ -31,7 +31,7 @@ nav ul li {
 
 nav ul li:hover {
     color: black;
-    filter: drop-shadow( 0 2px 7px rgba(2,4,4,2));
+    filter: brightness(5%);
 }
 
 
@@ -145,7 +145,7 @@ p {
 #app_nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #treasurehuntList {
@@ -166,10 +166,6 @@ p {
     align-items: center;
     justify-content: center;
 }
-
-/* #treasurehuntList li:hover {
-    background: radial-gradient(darkslategray, darkgray);
-}*/
 
 #refresh {
     text-decoration: none;
@@ -218,6 +214,12 @@ p {
 }
 
 /* LOGIN */
+#login_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #login {
     display: flex;
     justify-content: center;
@@ -241,8 +243,8 @@ p {
     box-shadow: 0 1px 4px rgba(0,0,0,01);
     font-size: x-large;
     margin-left: 1rem;
+    margin-top: 10rem;
 }
-
 
 #login_submit_button {
     display: flex;
@@ -257,12 +259,31 @@ p {
     transition: backround 1.5s ease-in, color 0.5s ease-in;
     box-shadow: 0 4px 13px rgba(0,0,0,01);
     margin-left: 8rem;
-    margin-top: 2rem;
+    margin-top: 0.7rem;
 }
-
 
 #login_submit_button:hover {
     background: radial-gradient(darkslategray, darkgray);
     color: lightgray;
 }
+
+
+/* TREASURE HUNT PAGE */
+#skip {
+    font-size: x-large;
+    cursor: pointer;
+    border: 1px solid darkgray;
+    border-radius: 25px;
+    box-shadow: 0 4px 13px rgba(0,0,0,01);
+    padding: 8px 22px;
+    transition: backround 1.5s ease-in, color 0.5s ease-in;
+}
+
+#skip:hover {
+    color: black;
+    filter: brightness(5%);
+}
+
+/* questions */
+
 

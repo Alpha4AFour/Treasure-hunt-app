@@ -217,3 +217,52 @@ p {
     color: darkslategray;
 }
 
+/* LOGIN */
+#login {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+    font-size: xx-large;
+}
+
+#login_name {
+    font-size: x-large;
+    filter: drop-shadow(0 0px 1px rgba(1, 2, 2, 2));
+}
+
+#name {
+    padding: 0.18rem 0.18rem;
+    flex: 1;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 4px rgba(0,0,0,01);
+    font-size: x-large;
+    margin-left: 1rem;
+}
+
+
+#login_submit_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: darkslategray;
+    color: white;
+    font-size: x-large;
+    padding: 15px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: backround 1.5s ease-in, color 0.5s ease-in;
+    box-shadow: 0 4px 13px rgba(0,0,0,01);
+    margin-left: 8rem;
+    margin-top: 2rem;
+}
+
+
+#login_submit_button:hover {
+    background: radial-gradient(darkslategray, darkgray);
+    color: lightgray;
+}
+

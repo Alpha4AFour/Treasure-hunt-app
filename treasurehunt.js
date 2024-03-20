@@ -31,11 +31,7 @@ async function question(){
                 document.getElementById('buttonC').style.display = "block";
                 document.getElementById('buttonD').style.display = "block";
             }
-            if (typeOfQuestion === "TEXT") {
-                document.getElementById('answerField').style.display = "block";
-                document.getElementById('buttonSubmit').style.display = "block";
-            }
-            if (typeOfQuestion === "INTEGER") {
+            if (typeOfQuestion === "INTEGER" || typeOfQuestion === "TEXT") {
                 document.getElementById('answerField').style.display = "block";
                 document.getElementById('buttonSubmit').style.display = "block";
             }
@@ -50,6 +46,7 @@ async function skipQuestion() {
 
     if (jsonObject.status === "OK") {
         alert("Question skipped!")
+        location.reload();
         question();
     }
     else {
@@ -67,9 +64,10 @@ function answer() {
 
                 if (jsonObject.completed) {
                     alert("TODO - Move to the leaderboard...");
+                    window.location.href="leaderboard.html";
 
                     //TODO - Move to the leaderboard.
-                    return;
+                    //return;
                 }
 
                 if (jsonObject.correct) {
@@ -78,6 +76,7 @@ function answer() {
                 }
                 else {
                     alert(jsonObject.message);
+                    location.reload();
                 }
             }
             else {
@@ -106,6 +105,7 @@ function setAnswer(answer){
                 }
                 else {
                     alert(jsonObject.message);
+                    location.reload();
                 }
             }
             else {
@@ -114,10 +114,21 @@ function setAnswer(answer){
             }
         });
 }
+score();
 question();
 
 skipTask.addEventListener("click", function(event){
     event.preventDefault();
     skipQuestion();
 });
+function score(){
+    fetch(`https://codecyprus.org/th/api/score?session=${session}`)
+        .then(value=>value.json())
+        .then(jsonObject=>{
+            console.log("Test");
+            console.log(jsonObject);
+            let score=document.getElementById("score");
+            score.innerHTML += jsonObject.score;
+        })
+}
 

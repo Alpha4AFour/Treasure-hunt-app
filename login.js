@@ -3,19 +3,21 @@ async function login(){
     event.preventDefault();
     let name = document.getElementById("name").value;
     console.log("name: "+name);
+    const treasureHuntID = sessionStorage.getItem('treasureHuntID');
     console.log("id: "+treasureHuntID);
+    console.log(`Session Storage: ${treasureHuntID}`);
+    alert();
     try{
-        await fetch("https://codecyprus.org/th/api/start?player="+name+"&app=Alpha4AFour&treasure-hunt-id="+treasureHuntID)
+        await fetch(`https://codecyprus.org/th/api/start?player=${name}&app=Alpha4AFour&treasure-hunt-id=${treasureHuntID}`)
             .then(response => response.json())
             .then(jsonObject=>{
                 console.log(jsonObject);
-                window.location.href="treasurehunt.html?session="+jsonObject.session;
+                sessionStorage.setItem("session",jsonObject.session);
+                window.location.href="treasurehunt.html";
             })
     }
     catch(error) {
         alert("Error");
     }
 }
-const param = new URLSearchParams(document.location.search);
-const treasureHuntID = param.get("id");
-console.log(treasureHuntID);
+

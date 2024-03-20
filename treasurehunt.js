@@ -1,6 +1,8 @@
 const questionTextElement = document.getElementById("questionText");
 const answerFieldElement = document.getElementById("answerField");
 const skipTask = document.getElementById("skip");
+const session = sessionStorage.getItem("session");
+
 
 async function question(){
     await fetch("https://codecyprus.org/th/api/question?session="+session)
@@ -8,7 +10,8 @@ async function question(){
         .then(jsonObject =>{
             console.log(jsonObject);
             questionTextElement.innerHTML = jsonObject.questionText;
-            document.getElementById('idTextAnswer').style.display = "none";
+            answerFieldElement.value='';
+            document.getElementById('answerField').style.display = "none";
             document.getElementById('buttonSubmit').style.display = "none";
             document.getElementById('buttonA').style.display = "none";
             document.getElementById('buttonB').style.display = "none";
@@ -29,11 +32,11 @@ async function question(){
                 document.getElementById('buttonD').style.display = "block";
             }
             if (typeOfQuestion === "TEXT") {
-                document.getElementById('idTextAnswer').style.display = "block";
+                document.getElementById('answerField').style.display = "block";
                 document.getElementById('buttonSubmit').style.display = "block";
             }
             if (typeOfQuestion === "INTEGER") {
-                document.getElementById('idTextAnswer').style.display = "block";
+                document.getElementById('answerField').style.display = "block";
                 document.getElementById('buttonSubmit').style.display = "block";
             }
         });
@@ -53,10 +56,6 @@ async function skipQuestion() {
         alert("Failed to skip question")
     }
 }
-
-const param = new URLSearchParams(document.location.search);
-const session = param.get("session");
-console.log(session);
 
 function answer() {
     const answerText = answerFieldElement.value;
@@ -88,7 +87,33 @@ function answer() {
         });
 
 }
+function setAnswer(answer){
+    fetch(`https://codecyprus.org/th/api/answer?session=${session}&answer=${answer}`)
+        .then(value => value.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK") {
 
+                if (jsonObject.completed) {
+                    alert("TODO - Move to the leaderboard...");
+
+                    //TODO - Move to the leaderboard.
+                    return;
+                }
+
+                if (jsonObject.correct) {
+                    alert(jsonObject.message);
+                    location.reload();
+                }
+                else {
+                    alert(jsonObject.message);
+                }
+            }
+            else {
+                alert("Error: " + jsonObject.errorMessages);
+                //TODO - Improve
+            }
+        });
+}
 question();
 
 skipTask.addEventListener("click", function(event){

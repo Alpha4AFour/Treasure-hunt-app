@@ -2,7 +2,11 @@ const questionTextElement = document.getElementById("questionText");
 const answerFieldElement = document.getElementById("answerField");
 const skipTask = document.getElementById("skip");
 const session = sessionStorage.getItem("session");
-
+const timeStamp = new Date().getTime();
+let timeDifference = 30000;
+if(sessionStorage.getItem("lastUpdate")!==null){
+    timeDifference=timeStamp-sessionStorage.getItem("lastUpdate");
+}
 
 async function question(){
     await fetch("https://codecyprus.org/th/api/question?session="+session)
@@ -35,6 +39,11 @@ async function question(){
                 document.getElementById('answerField').style.display = "block";
                 document.getElementById('buttonSubmit').style.display = "block";
             }
+
+            if(jsonObject.requiresLocation || timeDifference>=30000){
+                geoLocation();
+                sessionStorage.setItem("lastUpdate",timeStamp);
+            }
         });
 }
 
@@ -64,10 +73,9 @@ function answer() {
 
                 if (jsonObject.completed) {
                     alert("TODO - Move to the leaderboard...");
-                    window.location.href="leaderboard.html";
-
                     //TODO - Move to the leaderboard.
-                    //return;
+                    window.location.href="leaderboard.html";
+                    return;
                 }
 
                 if (jsonObject.correct) {
@@ -96,6 +104,7 @@ function setAnswer(answer){
                     alert("TODO - Move to the leaderboard...");
 
                     //TODO - Move to the leaderboard.
+                    window.location.href="leaderboard.html";
                     return;
                 }
 
@@ -114,8 +123,6 @@ function setAnswer(answer){
             }
         });
 }
-score();
-question();
 
 skipTask.addEventListener("click", function(event){
     event.preventDefault();
@@ -132,3 +139,28 @@ function score(){
         })
 }
 
+function geoLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else{
+        alert("Geolocation not supported!");
+    }
+}
+
+function showPosition(position){
+    console.log("Longitude: "+position.coords.longitude+" Latitude: "+position.coords.latitude);
+    fetch(`https://codecyprus.org/th/api/location?session=${session}&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
+        .then(response=>response.json())
+        .then(jsonObject=>{
+            if(jsonObject.status==="OK"){
+                console.log(jsonObject.message);
+            }
+            else{
+                console.log(jsonObject.errorMessages);
+            }
+        })
+}
+score();
+question();
+//geoLocation();

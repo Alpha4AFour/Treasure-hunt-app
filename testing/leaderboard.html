@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing</title>
+    <link rel="stylesheet" href="/Treasure-hunt-app/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <form onsubmit="handleForm()" method="post">
+        <label>Sorted: <input type="checkbox" id="sorted" name="sorted"></label></br>
+        <label>Has Prize: <input type="checkbox" id="hasPrize" name="hasPrize"></label></br>
+        <label>Size: <input type="number" id="size" name="size" required></label></br>
+        <input type="submit" id="submit" value="Create Leaderboard">
+    </form>
+    <br/>
+    <table id="leaderboard">
+        <tr>
+            <th>Player</th>
+            <th>Score</th>
+            <th>Time</th>
+        </tr>
+    </table>
+    <script src="leaderboard.js"></script>
+</body>
+</html>

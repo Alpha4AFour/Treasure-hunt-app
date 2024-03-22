@@ -5,9 +5,16 @@
     <title>Testing</title>
     <link rel="stylesheet" href="/Treasure-hunt-app/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 </head>
 <body>
-
+    <form onsubmit="handleForm()" method="post">
+        <label>Number of Treasure Hunts<input type="number" id="number" name="number" required></label><br/>
+        <input type="submit" id="submit" value="Create Treasure Hunt List">
+    </form>
+    <br/>
+    <div id="treasureHuntDiv">
+        <ul id="treasurehuntList"></ul>
+    </div>
+    <script src="list.js"></script>
 </body>
 </html>

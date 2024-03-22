@@ -23,8 +23,8 @@ function leaderboard(sorted,hasPrize,size){
 function handleForm(){
     //let sorted,hasPrize,size;
     event.preventDefault();
-    let sorted=document.getElementById("sorted").value;
-    let hasPrize=document.getElementById("hasPrize").value;
+    let sorted=document.getElementById("sorted").checked;
+    let hasPrize=document.getElementById("hasPrize").checked;
     let size=document.getElementById("size").value;
     console.log(sorted);
     console.log(hasPrize);

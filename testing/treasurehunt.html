@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing</title>
+    <link rel="stylesheet" href="/Treasure-hunt-app/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div id="question"><label>Question: </label></div>
+    <br/>
+    <form onsubmit="handleQuestionForm()" method="post">
+        <label>Completed: <input type="checkbox" id="completedQuestion" value="completed"></label><br/>
+        <label>Question type: </label>
+        <select id="questionType" name="questionType" required>
+            <option value="boolean">Boolean</option>
+            <option value="MCQ">MCQ</option>
+            <option value="integer">Integer</option>
+            <option value="numeric">Numeric</option>
+            <option value="text">Text</option>
+            <option value="random">Random</option>
+        </select>
+        <br/>
+        <label>Can be skipped: <input type="checkbox" id="canBeSkipped" value="canBeSkipped"></label><br/>
+        <label>Requires location: <input type="checkbox" id="location" value="location"></label></br>
+        <input type="submit" id="submitQuestion" value="Generate Question">
+    </form>
+    <br/>
+    <form onsubmit="handleAnswerForm()" method="post">
+        <label>Correct: <input type="checkbox" id="correct" value="correct"></label></br>
+        <label>Completed: <input type="checkbox" id="completedAnswer" value="completed"></label><br/>
+        <label>Expired: <input type="checkbox" id="expired" value="expired"></label><br/>
+        <label id="answer">Answer Field: </label><br/>
+        <input type="submit" id="submitAnswer" value="Submit Answer Parameters">
+    </form>
+    <br/>
+    <form onsubmit="handleScoreForm()" method="post">
+        <label>Score: <input type="number" id="scoreForm" value="score" required></label></br>
+        <label>Completed: <input type="checkbox" id="completedScore" value="completed"></label><br/>
+        <label>Finished: <input type="checkbox" id="finished" value="finished"></label></br>
+        <label>Error: <input type="checkbox" id="error" value="error"></label></br>
+        <input type="submit" id="submitScore" value="Submit Score">
+    </form>
+    <br/>
+    <div id="score"><label>Score: </label></div>
+    <script src="treasureHunt.js"></script>
+</body>
+</html>

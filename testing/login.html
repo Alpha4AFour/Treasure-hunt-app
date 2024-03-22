@@ -7,6 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-
+    <form onsubmit="handleForm()" method="post">
+        <label>Choose error type:</label>
+        <select id="error" name="error">
+            <option value="noError">No Error</option>
+            <option value="inactive">Inactive</option>
+            <option value="empty">Empty</option>
+            <option value="player">Player</option>
+            <option value="app">App</option>
+            <option value="unknown">Unknown</option>
+            <option value="missing_parameter">Missing Parameter</option>
+        </select>
+        <br/>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+    <script src="login.js"></script>
 </body>
 </html>

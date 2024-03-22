@@ -26,18 +26,18 @@ async function question(){
             let typeOfQuestion = jsonObject.questionType;
 
             if (typeOfQuestion === "BOOLEAN") {
-                document.getElementById('buttonTrue').style.display ="block";
-                document.getElementById('buttonFalse').style.display ="block";
+                document.getElementById('buttonTrue').style.display ="flex";
+                document.getElementById('buttonFalse').style.display ="flex";
             }
             if  (typeOfQuestion === "MCQ") {
-                document.getElementById('buttonA').style.display = "block";
-                document.getElementById('buttonB').style.display = "block";
-                document.getElementById('buttonC').style.display = "block";
-                document.getElementById('buttonD').style.display = "block";
+                document.getElementById('buttonA').style.display = "flex";
+                document.getElementById('buttonB').style.display = "flex";
+                document.getElementById('buttonC').style.display = "flex";
+                document.getElementById('buttonD').style.display = "flex";
             }
             if (typeOfQuestion === "INTEGER" || typeOfQuestion === "TEXT") {
-                document.getElementById('answerField').style.display = "block";
-                document.getElementById('buttonSubmit').style.display = "block";
+                document.getElementById('answerField').style.display = "flex";
+                document.getElementById('buttonSubmit').style.display = "flex";
             }
 
             if(jsonObject.requiresLocation || timeDifference>=30000){

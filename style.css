@@ -290,4 +290,85 @@ p {
 
 /* questions */
 
+/* QUESTION CONTAINER */
+#questionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 4rem;
+    margin-bottom: 3.3rem;
+    flex: 1;
+}
+
+/* SUBMIT TYPE AND ANSWER FIELD */
+#submitTypeContainer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#answerField {
+    padding: 0.4rem 0.7rem;
+    font-size: x-large;
+}
+
+#buttonSubmit {
+    justify-content: center;
+    align-items: center;
+    background: darkslategray;
+    color: white;
+    font-size: x-large;
+    padding: 12px 15px;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: backround 1.5s ease-in, color 0.5s ease-in;
+    box-shadow: 0 4px 13px rgba(0,0,0,01);
+}
+#buttonSubmit:hover {
+    background: radial-gradient(darkslategray, darkgray);
+    color: lightgray;
+}
+
+/* TRUE FALSE QUESTION */
+#trueFalseContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+}
+
+#buttonFalse {
+    font-size: xxx-large;
+    padding: 0.4rem 0.4rem;
+    background: darkslategray;
+    color: white;
+    border-radius: 20rem;
+    transition: backround 1.5s ease-in, color 0.5s ease-in;
+    box-shadow: 0 4px 13px rgba(0,0,0,01);
+}
+
+#buttonFalse:hover {
+    color: white;
+    filter: brightness(80%);
+}
+
+#buttonTrue {
+    font-size: xxx-large;
+    padding: 0.4rem 0.4rem;
+    background: darkslategray;
+    color: white;
+    border-radius: 20rem;
+    transition: backround 1.5s ease-in, color 0.5s ease-in;
+    box-shadow: 0 4px 13px rgba(0,0,0,01);
+}
+
+#buttonTrue:hover {
+    color: white;
+    filter: brightness(80%);
+}
 

@@ -12,8 +12,13 @@ async function login(){
             .then(response => response.json())
             .then(jsonObject=>{
                 console.log(jsonObject);
-                sessionStorage.setItem("session",jsonObject.session);
-                window.location.href="treasurehunt.html";
+                if (jsonObject.status === "OK") {
+                    sessionStorage.setItem("session", jsonObject.session);
+                    window.location.href = "treasurehunt.html";
+                }
+                else {
+                    alert(json.status.messages); //TODO
+                }
             })
     }
     catch(error) {

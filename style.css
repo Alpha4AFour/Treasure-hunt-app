@@ -279,6 +279,7 @@ p {
     transition: backround 1.5s ease-in, color 0.5s ease-in;
 }
 #score {
+    font-size: xx-large;
     position:absolute;
     bottom: 0px;
 }
@@ -300,11 +301,12 @@ p {
     margin-top: 4rem;
     margin-bottom: 3.3rem;
     flex: 1;
+    border: 1px solid darkgray;
 }
+
 
 /* SUBMIT TYPE AND ANSWER FIELD */
 #submitTypeContainer {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -371,4 +373,32 @@ p {
     color: white;
     filter: brightness(80%);
 }
+
+/* Multiple Question */
+#multipleQuestionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+#multipleQuestionContainer > * {
+    font-size: xxx-large;
+    padding: 1.1rem 1.1rem;
+    background: darkslategray;
+    color: white;
+    border-radius: 20rem;
+    transition: backround 1.5s ease-in, color 0.5s ease-in;
+    box-shadow: 0 4px 13px rgba(0,0,0,01);
+}
+
+#multipleQuestionContainer > *:hover {
+    border: solid black 2px;
+    font-size: xxx-large;
+    color: white;
+    filter: brightness(80%);
+}
+
+
+
 

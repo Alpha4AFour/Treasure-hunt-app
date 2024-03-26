@@ -26,9 +26,9 @@ function handleLeaderboard(leaderboard) {
     if (Array.isArray(leaderboardArray)) {
         for (const entry of leaderboardArray) {
             html += "<tr>" +
-                "<td>" + entry['player'] + "</td>" +
-                "<td>" + entry['score'] + "</td>" +
-                "<td>" + handleTime(entry['completionTime']) + "</td>" +
+                "<td>" + "<span> <b> Name: </b> </span>" + entry['player'] + "</td>" +
+                "<td>" + "<span> <b> Score: </b> </span>" + entry['score'] + "</td>" +
+                "<td>" + "<span> <b> Date & duration: </b> </span>" + handleTime(entry['completionTime']) + "</td>" +
                 "</tr>";
         }
     }

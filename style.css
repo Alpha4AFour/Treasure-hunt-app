@@ -167,6 +167,12 @@ p {
     justify-content: center;
 }
 
+#treasurehuntList li:hover {
+    color: white;
+    filter: brightness(90%);
+}
+
+
 #refresh {
     text-decoration: none;
     font-size: x-large;
@@ -234,12 +240,12 @@ p {
 #login_name {
     font-size: x-large;
     filter: drop-shadow(0 0px 1px rgba(1, 2, 2, 2));
+    flex-wrap: wrap;
 }
 
 #name {
     padding: 0.18rem 0.18rem;
     flex: 1;
-    flex-wrap: wrap;
     box-shadow: 0 1px 4px rgba(0,0,0,01);
     font-size: x-large;
     margin-left: 1rem;
@@ -301,7 +307,6 @@ p {
     margin-top: 4rem;
     margin-bottom: 3.3rem;
     flex: 1;
-    border: 1px solid darkgray;
 }
 
 
@@ -314,6 +319,8 @@ p {
 }
 
 #answerField {
+    display: flex;
+    flex-wrap: wrap;
     padding: 0.4rem 0.7rem;
     font-size: x-large;
 }
@@ -396,8 +403,49 @@ p {
     border: solid black 2px;
     font-size: xxx-large;
     color: white;
-    filter: brightness(80%);
+    filter: brightness(90%);
 }
+
+/* LEADERBOARD */
+
+#leaderboardScore {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#completionTime {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#data {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+
+#data > * {
+    width: 42%;
+    display: flex;
+    flex: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid black;
+    padding: 2rem 2rem;
+}
+
+#test-results-table {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
 
 
 

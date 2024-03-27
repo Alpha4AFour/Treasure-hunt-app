@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function refresh () {
                 if(timeToStart>0){
                     listItem.style.pointerEvents = "none";
                     listItem.className="inactive";
-                    listItem.innerHTML = listItem.innerHTML = treasureHuntsArray[i].name+"</br>Will begin in: "+handleTime(timeToStart);
+                    listItem.innerHTML = treasureHuntsArray[i].name+"</br>Will begin in: "+handleTime(timeToStart);
                 }
                 else if(timeToStart<0&&timeToEnd>0){
                     listItem.innerHTML = treasureHuntsArray[i].name+"</br>Will end in: "+handleTime(timeToEnd);
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function refresh () {
                     listItem.innerHTML = treasureHuntsArray[i].name+"</br>Has finished: "+handleTime(timeToEnd);
                 }
                 //listItem.innerHTML = treasureHuntsArray[i].name+"</br>"+"Starts in: "+start+"</br>"+"Ends in: "+end;
+                listItem.innerHTML+="<p id='start' style='display: none'>"+start+"</p></br><p id='end' style='display: none'>"+end+"</p>";
                 listItem.id=treasureHuntsArray[i].uuid;
                 treasurehuntList.appendChild(listItem);
             }
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function refresh () {
     }
 
     callList();
-
+    setInterval(update,1000);
     document.getElementById('refresh').addEventListener('click', function refresh () {
         location.reload();
     });
@@ -86,10 +87,39 @@ function handleTime(unixTime){
     if(minutes>0){
         formattedString+=`${minutes} Minutes, `;
     }
-    let seconds =unixTime/sec;
+    let seconds =Math.floor(unixTime/sec);
     formattedString+=`${seconds} Seconds`;
     let formattedDateAndTime = `Days: ${days} Hours: ${hours} Minutes: ${minutes} Seconds: ${seconds}`;
-    console.log(formattedString);
+    //console.log(formattedString);
     return formattedString;
 }
-//handleTime(100000);
+function update(){
+    let array = document.getElementsByTagName("li");
+    for(let treasureHunt of array){
+        //let start=Number(treasureHunt.document.getElementById("start").innerText);
+        //let end=Number(treasureHunt.document.getElementById("end").innerText);
+        let timeStamp = treasureHunt.getElementsByTagName("p");
+        let start= Number(timeStamp[0].innerText);
+        let end = Number(timeStamp[1].innerText);
+        const currentTimestamp = new Date().getTime();
+        const timeToStart = start-currentTimestamp;
+        const timeToEnd = end-currentTimestamp;
+        if(timeToStart>0){
+            treasureHunt.style.pointerEvents = "none";
+            treasureHunt.className="inactive";
+            treasureHunt.innerHTML = treasureHunt.innerHTML.split("<",1)+"</br>Will begin in: "+handleTime(timeToStart);
+        }
+        else if(timeToStart<0&&timeToEnd>0){
+            treasureHunt.style.pointerEvents="auto";
+            treasureHunt.classList.remove("inactive");
+            treasureHunt.innerHTML = treasureHunt.innerHTML.split("<",1)+"</br>Will end in: "+handleTime(timeToEnd);
+        }
+        // Needs testing
+        else{
+            treasureHunt.style.pointerEvents = "auto";
+            treasureHunt.className="inactive";
+            treasureHunt.innerHTML = treasureHunt.innerHTML.split("\n",1)+"</br>Has finished: "+handleTime(timeToEnd);
+        }
+        treasureHunt.innerHTML+="<p id='start' style='display: none'>"+start+"</p></br><p id='end' style='display: none'>"+end+"</p>";
+    }
+}

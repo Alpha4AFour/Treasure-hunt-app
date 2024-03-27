@@ -21,19 +21,34 @@ else{
 function handleLeaderboard(leaderboard) {
     console.log('Received leaderboard data:', leaderboard);
 
-    let html = " ";
+    //let html = " ";
+    let leaderboardElement = document.getElementById('data');
     let leaderboardArray = leaderboard['leaderboard'];
     if (Array.isArray(leaderboardArray)) {
         for (const entry of leaderboardArray) {
-            html += "<tr>" +
-                "<td>" + "<span> <b> Name: </b> </span>" + entry['player'] + "</td>" +
-                "<td>" + "<span> <b> Score: </b> </span>" + entry['score'] + "</td>" +
-                "<td>" + "<span> <b> Date & duration: </b> </span>" + handleTime(entry['completionTime']) + "</td>" +
-                "</tr>";
+            let row = document.createElement("tr");
+            let player=document.createElement("td");
+            player.innerHTML="<span> <b> Name: </b> </span>";
+            let name = document.createElement("span");
+            name.innerText+=handleName(entry["player"]);
+            player.appendChild(name);
+            //name.innerText+=handleName(entry['player']);
+            row.appendChild(player);
+            let score=document.createElement("td");
+            score.innerHTML="<span> <b> Score: </b> </span>" + entry['score'];
+            row.appendChild(score);
+            let completion = document.createElement("td");
+            completion.innerHTML="<span> <b> Date & Time of completion: </b> </span>" + handleTime(entry['completionTime']);
+            row.appendChild(completion);
+            leaderboardElement.appendChild(row);
+            // html += "<tr>" +
+            //     "<td>" + "<span> <b> Name: </b> </span>" + entry['player'] + "</td>" +
+            //     "<td>" + "<span> <b> Score: </b> </span>" + entry['score'] + "</td>" +
+            //     "<td>" + "<span> <b> Date & Time of completion: </b> </span>" + handleTime(entry['completionTime']) + "</td>" +
+            //     "</tr>";
         }
     }
-    let leaderboardElement = document.getElementById('data');
-    leaderboardElement.innerHTML = html;
+    //leaderboardElement.innerHTML = html;
 }
 refreshButton.addEventListener("click",function(event){
     location.reload();
@@ -44,4 +59,14 @@ function handleTime(unixTime){
     let dateAndTime = new Date(unixTime);
     let formattedDateAndTime = dateAndTime.toLocaleDateString("en-UK",options);
     return formattedDateAndTime;
+}
+function handleName(name){
+    if(name.length<=20) {
+        console.log(name);
+        return name;
+    }
+    else{
+        console.log(name.slice(0,20));
+        return name.slice(0,20);
+    }
 }

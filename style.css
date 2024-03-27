@@ -1,6 +1,13 @@
+/* Needed to make theme apply for the whole page */
+html{
+    height:100%;
+}
+
 body {
     background: radial-gradient(#fff,#ffd6d6);
     font-family: 'Poppins',sans-serif;
+    /* Also needed */
+    min-height: 100%;
 }
 
 
@@ -488,6 +495,7 @@ p {
 
 }
 #data {
+    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -496,13 +504,16 @@ p {
 
 
 #data > * {
-    width: 42%;
+    width: 100%;
     display: flex;
     flex: fit-content;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    border: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: none;
+    border-right: none;
     padding: 2rem 2rem;
 }
 

@@ -130,12 +130,14 @@ p {
 
 /* APP HTML */
 #pirateIcon {
-    width: 60px;
+    width: 120px;
+    height: 120px;
     margin-right: 10px;
 }
 
 #codeCyprus {
     color: darkslategray;
+    margin-right: 2rem;
 }
 
 #app_header {
@@ -166,6 +168,29 @@ p {
     align-items: center;
     justify-content: center;
 }
+
+@media only screen and (max-width: 480px) {
+    #treasurehuntList li {
+        display: flex;
+        cursor: pointer;
+        border: 1px solid black;
+        padding: 20px;
+        text-align: center;
+        margin: 3rem 3rem;
+        background: radial-gradient(darkslategray, darkgray);
+        color: white;
+        box-shadow: 0 5px 15px rgba(0,0,0,03);
+        border-radius: 15px;
+        align-items: center;
+        justify-content: center;
+        font-size: x-large;
+        row-gap: 4rem;
+    }
+    #info_container {
+        margin-bottom: 2rem;
+    }
+}
+
 
 #treasurehuntList li:hover {
     color: white;
@@ -204,7 +229,7 @@ p {
     border: 0.3rem solid rgb(37,59,59);
     border-radius: 4rem;
     padding: 2rem 2rem;
-    margin-left: 2rem;
+    margin-right: 2rem;
     font-size: x-large;
     color: rgb(37,59,59);
 }
@@ -240,7 +265,30 @@ p {
 #login_name {
     font-size: x-large;
     filter: drop-shadow(0 0px 1px rgba(1, 2, 2, 2));
-    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 431px) {
+    #login_name {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        font-size: xx-large;
+        margin-top: 5rem;
+
+    }
+    #name {
+        padding: 0.18rem 0.18rem;
+        flex: 1;
+        box-shadow: 0 1px 4px rgba(0,0,0,01);
+        font-size: x-large;
+        margin-left: 1rem;
+    }
+    #submitTypeContainer {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+    }
 }
 
 #name {
@@ -249,7 +297,7 @@ p {
     box-shadow: 0 1px 4px rgba(0,0,0,01);
     font-size: x-large;
     margin-left: 1rem;
-    margin-top: 10rem;
+    margin-top: 2rem;
 }
 
 #login_submit_button {
@@ -305,7 +353,7 @@ p {
     text-align: center;
     font-size: xx-large;
     margin-top: 4rem;
-    margin-bottom: 3.3rem;
+    margin-bottom: 3rem;
     flex: 1;
 }
 
@@ -397,6 +445,25 @@ p {
     border-radius: 20rem;
     transition: backround 1.5s ease-in, color 0.5s ease-in;
     box-shadow: 0 4px 13px rgba(0,0,0,01);
+}
+
+@media only screen and (max-width: 800px) {
+    #multipleQuestionContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    #multipleQuestionContainer > * {
+        font-size: xxx-large;
+        padding: 0.8rem 0.8rem;
+        background: darkslategray;
+        color: white;
+        border-radius: 20rem;
+        transition: backround 1.5s ease-in, color 0.5s ease-in;
+        box-shadow: 0 4px 13px rgba(0,0,0,01);
+    }
 }
 
 #multipleQuestionContainer > *:hover {

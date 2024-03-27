@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function refresh () {
     document.getElementById('treasurehuntList').addEventListener('click', function (event) {
         if (event.target.tagName === 'LI') {
             const treasureName = event.target.innerText.split('\n')[0];
-            alert("Starting treasure hunt: " + treasureName);
+            // alert("Starting treasure hunt: " + treasureName);
             sessionStorage.setItem("treasureHuntID",event.target.id);
             window.location.href="login.html";
         }

@@ -6,7 +6,6 @@ async function login(){
     const treasureHuntID = sessionStorage.getItem('treasureHuntID');
     console.log("id: "+treasureHuntID);
     console.log(`Session Storage: ${treasureHuntID}`);
-    alert();
     try{
         await fetch(`https://codecyprus.org/th/api/start?player=${name}&app=Alpha4AFour&treasure-hunt-id=${treasureHuntID}`)
             .then(response => response.json())
@@ -17,7 +16,7 @@ async function login(){
                     window.location.href = "treasurehunt.html";
                 }
                 else {
-                    alert(json.status.messages); //TODO
+                    alert(json.status.messages);
                 }
             })
     }

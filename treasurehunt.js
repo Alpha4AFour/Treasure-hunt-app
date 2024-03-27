@@ -3,6 +3,8 @@ const answerFieldElement = document.getElementById("answerField");
 const skipTask = document.getElementById("skip");
 const session = sessionStorage.getItem("session");
 const timeStamp = new Date().getTime();
+const skip_button = document.getElementById("skip");
+
 let timeDifference = 30000;
 if(sessionStorage.getItem("lastUpdate")!==null){
     timeDifference=timeStamp-sessionStorage.getItem("lastUpdate");
@@ -72,8 +74,6 @@ function answer() {
             if (jsonObject.status === "OK") {
 
                 if (jsonObject.completed) {
-                    alert("TODO - Move to the leaderboard...");
-                    //TODO - Move to the leaderboard.
                     window.location.href="leaderboard.html";
                     return;
                 }

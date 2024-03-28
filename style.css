@@ -481,6 +481,12 @@ p {
 }
 
 /* LEADERBOARD */
+#leaderboardTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 #leaderboardScore {
     display: flex;
@@ -495,7 +501,6 @@ p {
 
 }
 #data {
-    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -504,7 +509,6 @@ p {
 
 
 #data > * {
-    width: 100%;
     display: flex;
     flex: fit-content;
     flex-direction: column;

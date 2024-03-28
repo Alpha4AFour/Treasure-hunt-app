@@ -2,14 +2,28 @@ const questionTextElement = document.getElementById("questionText");
 const answerFieldElement = document.getElementById("answerField");
 const skipTask = document.getElementById("skip");
 const session = sessionStorage.getItem("session");
+const numOfQuestions = sessionStorage.getItem("numOfQuestions");
 const timeStamp = new Date().getTime();
-const skip_button = document.getElementById("skip");
+//const skip_button = document.getElementById("skip");
 
 let timeDifference = 30000;
 if(sessionStorage.getItem("lastUpdate")!==null){
     timeDifference=timeStamp-sessionStorage.getItem("lastUpdate");
 }
-
+// QR CODE SETUP
+var opts = {
+    continuous: true,
+    video: document.getElementById('video'),
+    mirror: true,
+    captureImage: false,
+    backgroundScan: true,
+    refractoryPeriod: 5000,
+    scanPeriod: 1
+}
+var scanner = new Instascan.Scanner(opts);
+var cameraNum = 0;
+var count = 0;
+// QR CODE END
 async function question(){
     await fetch("https://codecyprus.org/th/api/question?session="+session)
         .then(response=>response.json())
@@ -17,6 +31,7 @@ async function question(){
             console.log(jsonObject);
             questionTextElement.innerHTML = jsonObject.questionText;
             answerFieldElement.value='';
+            sessionStorage.setItem("questionIndex",jsonObject.currentQuestionIndex);
             document.getElementById('answerField').style.display = "none";
             document.getElementById('buttonSubmit').style.display = "none";
             document.getElementById('buttonA').style.display = "none";
@@ -41,11 +56,16 @@ async function question(){
                 document.getElementById('answerField').style.display = "flex";
                 document.getElementById('buttonSubmit').style.display = "flex";
             }
-
             if(jsonObject.requiresLocation || timeDifference>=30000){
                 geoLocation();
                 sessionStorage.setItem("lastUpdate",timeStamp);
             }
+
+
+            if(jsonObject.canBeSkipped !== true) {
+                document.getElementById('skip').style.display = "none";
+            }
+
         });
 }
 
@@ -56,12 +76,17 @@ async function skipQuestion() {
     const jsonObject = await response.json();
 
     if (jsonObject.status === "OK") {
-        alert("Question skipped!")
-        location.reload();
-        question();
+        alert("Question skipped!");
+        if(sessionStorage.getItem("questionIndex")<numOfQuestions-1){
+            location.reload();
+            question();
+        }
+        else{
+            window.location.href="leaderboard.html";
+        }
     }
     else {
-        alert("Failed to skip question")
+        alert("Failed to skip question");
     }
 }
 
@@ -161,6 +186,47 @@ function showPosition(position){
             }
         })
 }
+document.getElementById("qrCode").addEventListener("click",function(event){
+    event.preventDefault();
+    document.getElementById("qrCodeWindow").showModal();
+    camera(0);
+});
+document.getElementById("close").addEventListener("click",function(event){
+    event.preventDefault();
+    document.getElementById("qrCodeWindow").close();
+    scanner.stop();
+});
+function camera(num){
+    Instascan.Camera.getCameras()
+        .then(cameras=>{
+            alert("Cool");
+            count = cameras.length;
+            if(cameras.length>0){
+                alert("Start");
+                scanner.start(cameras[0]);
+                alert("Success");
+            }
+            else
+                alert("No cameras found.");
+
+        })
+        .catch(function (e){
+            console.log(e);
+        });
+    scanner.addListener("scan",function(content){
+        console.log(content);
+        document.getElementById("content").innerText=content;
+        scanner.stop();
+    });
+}
+function changeCamera(){
+    scanner.stop();
+    if(cameraNum<count)
+        cameraNum++;
+    else
+        cameraNum=0;
+    camera(cameraNum);
+}
 score();
 question();
-//geoLocation();
+

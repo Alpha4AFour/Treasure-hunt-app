@@ -528,7 +528,27 @@ p {
     width: 100%;
 }
 
-
+/*QR CODE SCANNER*/
+#qrCodeWindow{
+    opacity: 95%;
+}
+#close{
+    position: absolute;
+    right: 0em;
+}
+#video{
+    padding: 1rem;
+    margin: 1rem;
+    opacity: 100%;
+}
+#content{
+    margin: 2rem;
+    padding: 2rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+    opacity: 100%;
+}
 
 
 

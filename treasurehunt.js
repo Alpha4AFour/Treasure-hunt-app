@@ -46,6 +46,11 @@ async function question(){
                 geoLocation();
                 sessionStorage.setItem("lastUpdate",timeStamp);
             }
+
+            if(jsonObject.canBeSkipped !== true) {
+                document.getElementById('skip').style.display = "none";
+            }
+
         });
 }
 

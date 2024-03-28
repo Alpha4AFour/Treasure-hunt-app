@@ -13,10 +13,11 @@ async function login(){
                 console.log(jsonObject);
                 if (jsonObject.status === "OK") {
                     sessionStorage.setItem("session", jsonObject.session);
+                    sessionStorage.setItem("numOfQuestions",jsonObject.numOfQuestions);
                     window.location.href = "treasurehunt.html";
                 }
                 else {
-                    alert(json.status.messages);
+                    alert(jsonObject.status.errorMessages);
                 }
             })
     }

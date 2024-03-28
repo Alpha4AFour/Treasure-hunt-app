@@ -199,12 +199,9 @@ document.getElementById("close").addEventListener("click",function(event){
 function camera(num){
     Instascan.Camera.getCameras()
         .then(cameras=>{
-            alert("Cool");
             count = cameras.length;
             if(cameras.length>0){
-                alert("Start");
                 scanner.start(cameras[0]);
-                alert("Success");
             }
             else
                 alert("No cameras found.");

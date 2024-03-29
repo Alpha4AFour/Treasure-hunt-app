@@ -1,10 +1,10 @@
 const questionTextElement = document.getElementById("questionText");
 const answerFieldElement = document.getElementById("answerField");
+const numberFieldElement =document.getElementById("numberField");
 const skipTask = document.getElementById("skip");
 const session = sessionStorage.getItem("session");
 const numOfQuestions = sessionStorage.getItem("numOfQuestions");
 const timeStamp = new Date().getTime();
-//const skip_button = document.getElementById("skip");
 
 let timeDifference = 30000;
 if(sessionStorage.getItem("lastUpdate")!==null){
@@ -31,8 +31,10 @@ async function question(){
             console.log(jsonObject);
             questionTextElement.innerHTML = jsonObject.questionText;
             answerFieldElement.value='';
+            numberFieldElement.value='';
             sessionStorage.setItem("questionIndex",jsonObject.currentQuestionIndex);
             document.getElementById('answerField').style.display = "none";
+            document.getElementById('numberField').style.display = "none";
             document.getElementById('buttonSubmit').style.display = "none";
             document.getElementById('buttonA').style.display = "none";
             document.getElementById('buttonB').style.display = "none";
@@ -53,17 +55,18 @@ async function question(){
                 document.getElementById('buttonD').style.display = "flex";
             }
             if (typeOfQuestion === "INTEGER" || typeOfQuestion === "TEXT") {
-                document.getElementById('answerField').style.display = "flex";
+                if(typeOfQuestion==="TEXT")
+                    document.getElementById('answerField').style.display = "flex";
+                else
+                    document.getElementById('numberField').style.display = "flex";
                 document.getElementById('buttonSubmit').style.display = "flex";
             }
             if(jsonObject.requiresLocation || timeDifference>=30000){
                 geoLocation();
                 sessionStorage.setItem("lastUpdate",timeStamp);
             }
-
-
             if(jsonObject.canBeSkipped !== true) {
-                document.getElementById('skip').style.display = "none";
+                skipTask.style.display = "none";
             }
 
         });
@@ -92,8 +95,9 @@ async function skipQuestion() {
 
 function answer() {
     const answerText = answerFieldElement.value;
+    const number = numberFieldElement.value;
     //Send the answer to the server:
-    fetch(`https://codecyprus.org/th/api/answer?session=${session}&answer=${answerText}`)
+    fetch(`https://codecyprus.org/th/api/answer?session=${session}&answer=${(answerText.value==="NULL")?answerText:number}`)
         .then(value => value.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
@@ -196,6 +200,10 @@ document.getElementById("close").addEventListener("click",function(event){
     document.getElementById("qrCodeWindow").close();
     scanner.stop();
 });
+document.getElementById("changeCamera").addEventListener("click", function(event){
+    event.preventDefault();
+    changeCamera();
+});
 function camera(num){
     Instascan.Camera.getCameras()
         .then(cameras=>{
@@ -213,7 +221,7 @@ function camera(num){
     scanner.addListener("scan",function(content){
         console.log(content);
         if(content.slice(0,4)==="http"||content.slice(0,5)==="https"||content.slice(0,3)==="www")
-            document.getElementById("content").innerHTML="<a>"+content+"</a>";
+            document.getElementById("content").innerHTML="<a href="+content+">"+content+"</a>";
         else
             document.getElementById("content").innerText=content;
         scanner.stop();

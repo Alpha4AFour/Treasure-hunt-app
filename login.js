@@ -17,7 +17,7 @@ async function login(){
                     window.location.href = "treasurehunt.html";
                 }
                 else {
-                    alert(jsonObject.status.errorMessages);
+                    alert(jsonObject.errorMessages); // errorMessages is a field of jsonObject
                 }
             })
     }

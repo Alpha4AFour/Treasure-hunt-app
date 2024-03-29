@@ -1,4 +1,4 @@
-# Heuristics evaluation
+# Heuristics evaluation in the form of list
 
 ## 1) Visibility of system status
 

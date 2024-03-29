@@ -28,5 +28,205 @@
         <li><a href="treasurehunt.html">Treasure Hunt</a></li>
         <li><a href="leaderboard.html">Leaderboard</a></li>
     </ul>
+    <h1>Testing plan</h1>
+
+    <h2>Goals:</h2>
+
+    <p>The primary goal of this plan is to implement a testing approach for evaluating the web application.<br>
+        The plan outlines procedures for documenting the testing outcomes as well.</p>
+
+    <h2>Description:</h2>
+    <p>Treasure Hunt is an online game, where players take part in a quiz, using gps user data when playing the game.<br>
+        Utilized features include geolocation, QR code scanner and provided API usage.</p>
+
+    <h2>Testing purposes:</h2>
+    <p>The main purpose of testing the app is to ensure that the functionality of Treashure Hunt game matches the specification brief.<br>
+        The final outcome of the testing procudure should include:<br>
+        Successfully tested application meeting the specifications and showing error-free performance.<br>
+        Testing page, containing Unit Tests which will use Testing API to perform isolated testing of application specific features alongside user tests report.<br>
+
+    <h2>Testers:</h2>
+    <p>Testers duty is recording the result of testing on the testing page following the testing plan.<br>
+        Testing team: [Timofei Svinarev, Boban Solomou].<br>
+        Update testers list, if any changes occur.</p>
+
+    <h2>Tests:</h2>
+    <h3>Functional test.</h3>
+    <p>Purpose: Is to ensure that the output of the application matches the expected one, using Unit tests<br>
+        Testers: Boban Solomou<br>
+        Approach: implementation and usage of unit tests, which would use a Testing API to compare the expected and real outputs.</p>
+
+    <h3>Exploratory</h3>
+    <p>The type of tests used most of the time, as a result of the lack of time.<br>
+        Purpose: The purpose of this type of test is to find and fix primary issues manually.<br>
+        Approach: Exploratory testing is a type of investigating application without a predefined test plan,<br>
+        allowing the tester to explore the application and identify bugs on the go.
+    <h3>User acceptance Test</h3>
+    <p>Milestones: Getting games options, major functionality(receiving questions, sending answers), QR code scanner, Leaderboard, location<br>
+        Tested OS: Windows 10, MacOS<br>
+        Browser tests: Firefox, Chrome, Safari.</p>
+
+    <h4>UAT entry criteria</h4>
+    <p>All features must be implemented<br>
+        All critical bugs must be fixed<br>
+        Before UAT exploratory and functional testing should be done.</p>
+    <a id="UATcases"></a>
+    <h4>Test Cases:</h4>
+    <table>
+        <tr>
+            <td>Getting games options:</td>
+            <td>
+                <ol>
+                    <li>Visit: https://alpha4afour.github.io/Treasure-hunt-app/</li>
+                    <li>Start new game ( click on "Begin" button )</li>
+                    <li>Expected result: You should have been redirected to the /app.html page with treasure hunt options</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>Getting login page:</td>
+            <td>
+                <ol>
+                    <li>Visit: https://alpha4afour.github.io/Treasure-hunt-app/</li>
+                    <li>Start new game ( click on "Begin" button )</li>
+                    <li>Choose test option ( click on "Sample Treasure Hunt" button )</li>
+                    <li>Expected result: You should have been redirected to the /login.html page with name submission form</li>
+                </ol>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Starting game:</td>
+            <td>
+                <ol>
+                    <li>Visit: https://alpha4afour.github.io/Treasure-hunt-app/</li>
+                    <li>Start new game ( click on "Begin" button )</li>
+                    <li>Choose test option ( click on "Sample Treasure Hunt" button )</li>
+                    <li>Enter your name in the form </li>
+                    <li>Expected result: If the name is already in use, alert will pop up with notification, otherwise the 1st question will be shown</li>
+                </ol>
+            </td>
+        </tr>
+        <tr><td>Providing a correct answer:</td>
+            <td>
+                <ol>
+                    <li>Visit: https://alpha4afour.github.io/Treasure-hunt-app/</li>
+                    <li>Start new game ( click on "Begin" button )</li>
+                    <li>Choose test option ( click on "Sample Treasure Hunt" button )</li>
+                    <li>Enter your name in the form, if it is taken provide a unique one </li>
+                    <li>Enter your answer.</li>
+                    <li>Expected result: In case the answer is correct, the score should update and notification "Well done!" should pop up, then next question should be shown.</li>
+                </ol>
+            </td>
+        </tr>
+
+        <tr><td>Providing an incorrect answer:</td>
+            <td>
+                <ol>
+                    <li>Visit: https://alpha4afour.github.io/Treasure-hunt-app/</li>
+                    <li>Start new game ( click on "Begin" button )</li>
+                    <li>Choose test option ( click on "Sample Treasure Hunt" button )</li>
+                    <li>Enter your name in the form, if it is taken provide a unique one </li>
+                    <li>Enter your answer.</li>
+                    <li>Expected result: In case the answer is incorrect, notification: "Wrong answer: [your answer]" should be shown and the score should update</li>
+                </ol>
+            </td>
+        </tr>
+
+        <tr><td>Leaderboard:</td>
+            <td>
+                <ol>
+                    <li>Visit: https://alpha4afour.github.io/Treasure-hunt-app/</li>
+                    <li>Start new game ( click on "Begin" button )</li>
+                    <li>Choose test option ( click on "Sample Treasure Hunt" button )</li>
+                    <li>Enter your name in the form, if it is taken provide a unique one </li>
+                    <li>Answer all questions to finish the game session.</li>
+                    <li>Expected result: You should be redirected to the leaderboard.html page where 10 players should be shown as a table.</li>
+                </ol>
+            </td>
+        </tr>
+        <tr><td>QR code scanner:</td>
+            <td>
+                <ol>
+                    <li>Visit: https://alpha4afour.github.io/Treasure-hunt-app/</li>
+                    <li>Start new game ( click on "Begin" button )</li>
+                    <li>Choose test option ( click on "Sample Treasure Hunt" button )</li>
+                    <li>Enter your name in the form, if it is taken provide a unique one </li>
+                    <li>Click "QR Code Scanner", provide access of camera to your browser (pop up window with camera expected)
+                    <li>Scan a QR code with a camera</li>
+                    <li>Expected result: You should see a hint below the question.</li>
+                </ol>
+            </td>
+        </tr>
+
+    </table>
+    <h2>UAT Results</h2>
+    <a id="UATresults"></a>
+    <table>
+        <tr>
+            <th>Test</th>
+            <th>Tester</th>
+            <th>Result</th>
+            <th>Note</th>
+        </tr>
+        <tr>
+            <td>Getting games options</td>
+            <td>Timofei Svinarev</td>
+            <td>Passed</td>
+            <td>Passed, 3 options shown</td>
+        </tr>
+        <tr>
+            <td>Getting login page</td>
+            <td>Timofei Svinarev</td>
+            <td>Passed</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Starting game</td>
+            <td>Timofei Svinarev</td>
+            <td>Passed</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Providing an correct answer</td>
+            <td>Timofei Svinarev</td>
+            <td>Passed</td>
+            <td>On the first question score isn't changing (Sample treasure hunt).</td>
+        </tr>
+        <tr>
+            <td>Providing an incorrect answer</td>
+            <td>Timofei Svinarev</td>
+            <td>Passed</td>
+            <td>On the first question score isn't changing (Sample treasure hunt).</td>
+        </tr>
+        <tr>
+            <td>Leaderboard</td>
+            <td>Timofei Svinarev</td>
+            <td>Passed</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>QR code scanner</td>
+            <td>Timofei Svinarev</td>
+            <td>Passed</td>
+            <td>QR code is working on a laptop camera but didn't on iphone, needs future testing</td>
+        </tr>
+    </table>
+    <h2>Exploratory testing</h2>
+    <table>
+        <tr>
+            <th>Problem</th>
+            <th>Tester</th>
+            <th>Fixed</th>
+            <th>Comment</th>
+        </tr>
+        <tr>
+            <td>When providing a used name on login page, alert does not specify the problem</td>
+            <td>Timofey Svinarev</td>
+            <td>Fixed</td>
+            <td>Fixed in last commit</td>
+        </tr>
+    </table>
+    <div style="height: 200px;"></div>
 </body>
 </html>

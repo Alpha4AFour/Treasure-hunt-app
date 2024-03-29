@@ -20,7 +20,7 @@ body {
 nav {
     flex: 1;
     justify-content: flex-end;
-    text-align: center;
+    text-align: right;
 }
 
 nav ul {
@@ -139,7 +139,7 @@ p {
 #pirateIcon {
     width: 120px;
     height: 120px;
-    margin-right: 1rem;
+    margin-right: 10px;
 }
 
 #codeCyprus {
@@ -295,21 +295,6 @@ p {
         display: flex;
         flex-direction: column;
         row-gap: 2rem;
-    }
-    #app_nav {
-        flex-wrap: wrap;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    #app_nav > * {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        flex-wrap: wrap;
-        flex: 1;
     }
 }
 
@@ -521,9 +506,7 @@ p {
     justify-content: center;
 
 }
-
 #data {
-    max-width: 95%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -536,7 +519,7 @@ p {
     flex: fit-content;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     border-left: none;
@@ -597,40 +580,6 @@ p {
     text-align: center;
     opacity: 100%;
 }
-@media only screen and (min-width: 650px) {
-    #qrCode {
-        justify-content: center;
-        align-items: flex-start;
-        text-align: left;
-        background: darkslategray;
-        color: white;
-        font-size: large;
-        padding: 2px 2px;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: backround 1.5s ease-in, color 0.5s ease-in;
-        box-shadow: 0 4px 13px rgba(0,0,0,01);
-        flex-direction: column;
-    }
-}
 
-#qrCode {
-    justify-content: center;
-    align-items: center;
-    background: darkslategray;
-    color: white;
-    font-size: x-large;
-    padding: 7px 7px;
-    border-radius: 32px;
-    cursor: pointer;
-    transition: backround 1.5s ease-in, color 0.5s ease-in;
-    box-shadow: 0 4px 13px rgba(0, 0, 0, 01);
-}
-
-#qrCode:hover {
-    font-size: x-large;
-    color: white;
-    filter: brightness(80%);
-}
 
 

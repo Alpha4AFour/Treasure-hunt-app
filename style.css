@@ -147,7 +147,7 @@ p {
     margin-right: 2rem;
 }
 
-#app_header {
+#testing_head {
     background-color: grey;
 }
 
@@ -583,6 +583,8 @@ p {
 #testing_header{
     text-align: center;
 }
-
+#test_header{
+    text-align: center;
+}
 
 

@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Testing</title>
-    <link rel="stylesheet" href="/Treasure-hunt-app/style.css"/>
+    <title>Login Testing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+    <div id="nav_bar" class="nav_bar">
+        <nav>
+            <ul>
+                <!-- list of links -->
+                <li> <a href="#" id="refresh"> Refresh </a> </li>
+                <li> <a href="../index.html"> Home </a> </li>
+                <li> <a href="../help.html"> Help </a> </li>
+                <li> <a href="../testing/index_testing.html"> Testing </a>
+            </ul>
+        </nav>
+    </div>
+    <h1 id="test_header"> Test page for list functionality </h1>
     <form onsubmit="handleForm()" method="post">
         <label>Choose error type:</label>
         <select id="error" name="error">

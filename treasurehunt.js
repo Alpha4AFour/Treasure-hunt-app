@@ -212,7 +212,10 @@ function camera(num){
         });
     scanner.addListener("scan",function(content){
         console.log(content);
-        document.getElementById("content").innerText=content;
+        if(content.slice(0,4)==="http"||content.slice(0,5)==="https"||content.slice(0,3)==="www")
+            document.getElementById("content").innerHTML="<a>"+content+"</a>";
+        else
+            document.getElementById("content").innerText=content;
         scanner.stop();
     });
 }
